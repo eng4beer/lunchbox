@@ -1,0 +1,7 @@
+---
+- name: Lunchbox Post-deployment actions
+  hosts: lunchbox
+  gather_facts: false
+  tasks:
+  
+  - name: Check to see if Openstack is alive
