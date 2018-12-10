@@ -1,0 +1,5 @@
+---
+- hosts: lunchbox
+  gather_facts: true
+  roles:
+     - operator

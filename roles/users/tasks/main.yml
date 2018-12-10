@@ -1,0 +1,15 @@
+- name: Create operator user    
+  os_user:
+    state: present
+    name: operator
+    password: redhat
+    email: operator@redhat.local
+    domain: default
+    default_project: operator
+
+    
+- name: Grant the operator user admin permissions
+  os_user_role:
+    user: operator
+    role: admin
+    project: operator

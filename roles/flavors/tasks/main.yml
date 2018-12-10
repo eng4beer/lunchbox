@@ -1,0 +1,17 @@
+- name: "Create Cloudforms Flavor"
+  os_nova_flavor:
+    state: present
+    name: m1.cfme
+    ram: 12288
+    vcpus: 4
+    disk: 80
+    flavorid: 6
+    
+- name: "Create OCP Flavor"
+  os_nova_flavor:
+    state: present
+    name: m1.ocp
+    ram: 16384
+    vcpus: 4
+    disk: 80
+    flavorid: 7

@@ -1,0 +1,20 @@
+- name: Create public facing network
+  os_network:
+    state: present
+    name: public
+    external: true
+    provider_network_type: flat
+    provider_physical_network: datacentre
+    
+- name: Create public facing subnet
+  os_subnet:
+    state: present
+    network_name: public
+    name: public-subnet
+    cidr: "{{'/'.join((ansible_default_ipv4.network, ansible_default_ipv4.netmask))| ipaddr('net') }}"
+    enable_dhcp: false
+    allocation_pool_start: "{{ ansible_default_ipv4.network [:-2]}}.50"
+    allocation_pool_end: "{{ ansible_default_ipv4.network [:-2]}}.99"
+    dns_nameservers:
+       - "{{ ansible_dns.nameservers.0 }}"
+

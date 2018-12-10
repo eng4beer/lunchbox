@@ -1,0 +1,9 @@
+---
+- hosts: lunchbox
+  gather_facts: true
+  roles:
+     - flavors
+     - networks
+     - projects
+     - users
+     - quotas
